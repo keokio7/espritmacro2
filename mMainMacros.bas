@@ -348,7 +348,7 @@ Public Sub ClickBtn1_2()
     Dim nErrorCode As Integer
     nErrorCode = 0
 
-    If MsgBox("[2] Generate toolpaths for [FRONT TURNING]. Please make sure the STL properly located.", vbYesNo, "CAM Automation") = vbYes Then
+    'If MsgBox("[2] Generate toolpaths for [FRONT TURNING]. Please make sure the STL properly located.", vbYesNo, "CAM Automation") = vbYes Then
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 '1. Step1_2 + Step2_4: STL + 경계소재-1 합한 개체의 TurningProfile로 FRONT TURNING Layer에 가공 관련 개체들 자동 생성
 
@@ -396,9 +396,9 @@ Public Sub ClickBtn1_2()
                 Exit Sub
             End Select
         End If
-    Else
-        Exit Sub
-    End If
+   ' Else
+    '    Exit Sub
+    'End If
    
 ClickBtn1_2END:
     Dim ly As Esprit.Layer

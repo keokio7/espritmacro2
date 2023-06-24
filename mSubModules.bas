@@ -324,7 +324,8 @@ Function Step1_2() As Integer
     
     Dim strTolerance As String
     'strTolerance = InputBox("Enter Tolerance For Turning Profile.", "CAM Automation - For Turning Profile", "0.0001")
-    strTolerance = InputBox("Enter Tolerance For Turning Profile.", "CAM Automation - For Turning Profile", DEFAULT_TOLERANCE)
+    'strTolerance = InputBox("Enter Tolerance For Turning Profile.", "CAM Automation - For Turning Profile", DEFAULT_TOLERANCE)
+    strTolerance = DEFAULT_TOLERANCE
     
     rtnValue = GetTurningProfile(CDbl(strTolerance))
     If rtnValue > 0 Then
