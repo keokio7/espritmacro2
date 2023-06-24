@@ -417,7 +417,7 @@ End Sub
 '' BTN#2 [2] Generate toolpaths for [ROUGH ENDMILL R6.0]. Please make sure the STL properly located."
 Public Sub ClickBtn2()
     If Set_AttributeValues() <= 0 Then
-                If MsgBox("[2-1] Select How-many-work-sections and generate CROSS BALL ENDMILL R0.75 Layers and Freeforms. Please make sure the STL properly located.", vbYesNo, "CAM Automation") = vbYes Then
+             '   If MsgBox("[2-1] Select How-many-work-sections and generate CROSS BALL ENDMILL R0.75 Layers and Freeforms. Please make sure the STL properly located.", vbYesNo, "CAM Automation") = vbYes Then
                         Unload frmBaseWorkPlaneDeg
                         Load frmBaseWorkPlaneDeg
                         frmBaseWorkPlaneDeg.Show
@@ -444,7 +444,7 @@ Public Sub ClickBtn2()
                                 Exit Sub
                         End If
 
-                End If
+               ' End If
     Else
         Call MsgBox("It is set from the saved value.(How-many-work-sections, base work pane, and etc..)")
     End If
@@ -454,13 +454,13 @@ Public Sub ClickBtn2()
     '    Document.Layers.Remove ("[nn]DEG CROSS BALL ENDMILL")
     'End If
         
-    If MsgBox("[2-2] Generate toolpaths for [ROUGH ENDMILL R6.0]. Please make sure the STL properly located.", vbYesNo, "CAM Automation") = vbYes Then
+    'If MsgBox("[2-2] Generate toolpaths for [ROUGH ENDMILL R6.0]. Please make sure the STL properly located.", vbYesNo, "CAM Automation") = vbYes Then
 '3. Generate Solid Mill Turn (ROUGH END MILL)
 '4. Open Form: frmCreateBorderSolidObject
         'generateSolidmilTurnWithBaseWorkPlane (strBaseWorkPlaneName_pub)
         If generateSolidmilTurnWithBaseWorkPlane(strBaseWorkPlaneName_pub, Get_nRoughStepByDegree, Get_nRoughHowMany) Then
             'Document.ActivePlane = Document.Planes("0DEG")
-            If MsgBox("Reorder Operation and show checking Rough Endmill.", vbYesNo) = vbYes Then
+            'If MsgBox("Reorder Operation and show checking Rough Endmill.", vbYesNo) = vbYes Then
                 Call ReorderOperation
                 Unload frmCreateBorderSolidObject
                 Load frmCreateBorderSolidObject
@@ -471,23 +471,11 @@ Public Sub ClickBtn2()
                 Document.Refresh
                 frmCreateBorderSolidObject.Show (vbModeless)
                 
-            End If
+           ' End If
         Else
             Call MsgBox("It is failed [2-2] Generate toolpaths for [ROUGH ENDMILL R6.0].", vbOKOnly)
         End If
-    ElseIf MsgBox("[2-3] Reorder Operation and show checking Rough Endmill.", vbYesNo) = vbYes Then
-                Call ReorderOperation
-                Unload frmCreateBorderSolidObject
-                Load frmCreateBorderSolidObject
-                frmCreateBorderSolidObject.MultiPage1.Value = 0
-                
-                'Show 선반소재(MaskLatheStock)
-                Call Document.Windows.ActiveWindow.SetMask(espViewMaskLatheStock, True)
-                Document.Refresh
-                frmCreateBorderSolidObject.Show (vbModeless)
-    Else
-        Exit Sub
-    End If
+
 End Sub
 Public Sub generateEndmillTemplates(pBaseWorkPlaneName As String, Optional pHowManySections As Integer = 3, Optional pByDeg As Integer = 120)
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -923,12 +911,12 @@ Private Function generateSolidmilTurnWithBaseWorkPlane(pBaseWorkPlaneName As Str
     i = 0
     bChecker = True
     For i = 0 To pRoughHowMany - 1
-        If MsgBox("It is processing to " + strRtnName(i), vbYesNo) = vbYes Then
+       ' If MsgBox("It is processing to " + strRtnName(i), vbYesNo) = vbYes Then
 '''''''''''''''''''''''''''''''''''''''''''
 'Generate Solid Mill Turn (ROUGH END MILL)
             nRtn(i) = generateSolidmilTurn(strRtnName(i), "ROUGH ENDMILL R6.0", CStr(i + 1))
             bChecker = (nRtn(i) = 1) 'To make sure each of nRtn() is true
-        End If
+       ' End If
     Next
 
     Dim ly As Esprit.Layer
