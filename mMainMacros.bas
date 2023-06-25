@@ -407,6 +407,7 @@ ClickBtn1_2END:
             ly.Visible = True
         End If
     Next
+     Call ClickBtn2
     Exit Sub
 
 Err_handler:
