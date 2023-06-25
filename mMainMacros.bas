@@ -370,11 +370,11 @@ Public Sub ClickBtn1_2()
         If nErrorCode < 0 Then
             Select Case nErrorCode
             Case -991
-                Call MsgBox("Cannot find a parallel segment.", vbCritical, "Error in Front Turning(Step2_4)")
+                'Call MsgBox("Cannot find a parallel segment.", vbCritical, "Error in Front Turning(Step2_4)")
                 Call GetLayer("FRONT TURNING", 1)
                 Exit Sub
             Case Else
-                Call MsgBox("Error in Step2_4(Draw toolpath segments and arcs automatically.).", vbCritical, "Error in Front Turning(Step2_4)")
+                'Call MsgBox("Error in Step2_4(Draw toolpath segments and arcs automatically.).", vbCritical, "Error in Front Turning(Step2_4)")
                 Call GetLayer("FRONT TURNING", 1)
                 Exit Sub
             End Select
@@ -387,11 +387,11 @@ Public Sub ClickBtn1_2()
         If nErrorCode < 0 Then
             Select Case nErrorCode
             Case -991
-                Call MsgBox("More than 2 Chain features are made. Please check it.", vbCritical, "Error in Front Truning.(Step2_6)")
+                'Call MsgBox("More than 2 Chain features are made. Please check it.", vbCritical, "Error in Front Truning.(Step2_6)")
                 Call GetLayer("FRONT TURNING", 1)
                 Exit Sub
             Case Else
-                Call MsgBox("Error in Step2_6(Create A chain feature.).", vbCritical, "Error in Front Turning(Step2_6)")
+                'Call MsgBox("Error in Step2_6(Create A chain feature.).", vbCritical, "Error in Front Turning(Step2_6)")
                 Call GetLayer("FRONT TURNING", 1)
                 Exit Sub
             End Select
