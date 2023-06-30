@@ -463,14 +463,14 @@ Public Sub ClickBtn2()
             'Document.ActivePlane = Document.Planes("0DEG")
             'If MsgBox("Reorder Operation and show checking Rough Endmill.", vbYesNo) = vbYes Then
                 Call ReorderOperation
-                Unload frmCreateBorderSolidObject
-                Load frmCreateBorderSolidObject
-                frmCreateBorderSolidObject.MultiPage1.Value = 0
+                'Unload frmCreateBorderSolidObject
+                'Load frmCreateBorderSolidObject
+                'frmCreateBorderSolidObject.MultiPage1.Value = 0
                 
                 'Show 선반소재(MaskLatheStock)
                 Call Document.Windows.ActiveWindow.SetMask(espViewMaskLatheStock, True)
                 Document.Refresh
-                frmCreateBorderSolidObject.Show (vbModeless)
+                'frmCreateBorderSolidObject.Show (vbModeless)
                 
            ' End If
         Else
@@ -980,12 +980,12 @@ Public Sub ClickBtn3()
         Call MsgBox("Attribute Value is not set up yet. Please check it first.", vbOKOnly)
         Exit Sub
     Else
-        Call MsgBox("It is set from the saved value.(How-many-work-sections, base work pane, and etc..)")
+        'Call MsgBox("It is set from the saved value.(How-many-work-sections, base work pane, and etc..)")
     End If
 
     Unload frmCreateBorderSolidObject
     Load frmCreateBorderSolidObject
-    frmCreateBorderSolidObject.MultiPage1.Value = 1
+    frmCreateBorderSolidObject.MultiPage1.Value = 0
     frmCreateBorderSolidObject.Show (vbModeless)
 End Sub
 
